@@ -12,31 +12,30 @@ matplotlibを使った論文作成時に使えそうなシンプルなグラフ�
 
 - Scatter2D (scatter mode)
 
-<img alt="kamioka-data-SN1987A" src="https://github.com/kyasya/kplot/blob/main/image/kamioka-SN1987A-demo.png" width="600">
+<img alt="kamioka-data-SN1987A" src="./image/kamioka-SN1987A-demo.png" width="600">
 
 - From Tab.1 and Fig.3 data of Kamiokande experiment in ref: [K. Hirata, Phys. Rev. Lett. 58, 1490](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.58.1490 )
-
 
 ## How to install
 
 1. clone this repository.
 
-    ```bash
-    ~$ cd [work path]
-    [work path]$ git clone https://github.com/kyasya/kplot.git
-    ```
+ ```bash
+ ~$ cd [work path]
+ [work path]$ git clone https://github.com/kyasya/kplot.git
+ ```
 
 2. open the terminal, and change to `src` directory under the installed repository.
 
-    ```bash
-    [work path]$ cd src
-    ```
+ ```bash
+ [work path]$ cd src
+ ```
 
-3. install using `src` command.: 
+3. install using `src` command.:
 
-    ```bash
-    [work path]/bin$ pip install .
-    ```
+ ```bash
+ [work path]/bin$ pip install .
+ ```
 
 4. Installation check. You can use the [demo programs](#demo-sample). (./samples)
 
@@ -61,7 +60,8 @@ x = np.random.normal(0, 1, 1000)
 h = kplot.hist('Title;x;Events', 100, -5, 5)
 h.Draw1D(x)
 ```
-<img alt="Image" src="https://github.com/kyasya/kplot/blob/main/image/demo-hist1D.png" width="600">
+
+<img alt="Image" src="./image/demo-hist1D.png" width="600">
 
 ### Separated graph
 
@@ -69,7 +69,7 @@ h.Draw1D(x)
 
 **NOTE**: Filling in the fitting caves requires a graph to be obtained. Fitting functionality will be added in the future.
 
-<img alt="Image" src="https://github.com/kyasya/kplot/blob/main/image/demo-sep2graph.png" width="600">
+<img alt="Image" src="./image/demo-sep2graph.png" width="600">
 
 ### 2D scatter/hist
 
@@ -93,11 +93,11 @@ h.Print('./demo-hist2D.png')
 
 - hist mode (`mode` parameter set to be `'hist'`)
 
-<img alt="Image" src="https://github.com/kyasya/kplot/blob/main/image/demo-hist2D-hist.png" width="500">
+<img alt="Image" src="./image/demo-hist2D-hist.png" width="500">
 
 - scatter mode (`mode` parameter set to be `'scatter'`)
 
-<img alt="Image" src="https://github.com/kyasya/kplot/blob/main/image/demo-hist2D-scatter.png" width="500">
+<img alt="Image" src="./image/demo-hist2D-scatter.png" width="500">
 
 ## License
 
