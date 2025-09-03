@@ -1,6 +1,7 @@
 setup.py
 kplot/__init__.py
 kplot/common.py
+kplot/kfittingbase.py
 kplot/kplot.py
 kplot/kscatter.py
 kplot/pltstyle.py
