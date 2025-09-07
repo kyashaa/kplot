@@ -11,9 +11,9 @@ import matplotlib.pyplot as plt
 
 class hist:
     """kplot.hist class
-    
+
     Create a one or two dimension graph/histogram.
-    
+
     """
     HistXRange = None
     uHistYRange = None
@@ -28,12 +28,11 @@ class hist:
     FigSize=(11.69,8.27)
     Axs = []
 
-    
     def __init__(self, titles, xBin=10, xMin=0, xMax=1, yBin=0, yMin=0, yMax=0):
         """default constructor
-        
+
         default constructor
-        
+
         Args:
             titles (str): The titles of the graph. "Graph title;x-axis label;y-axis label".
             xBim (int): Bin for x-axis.

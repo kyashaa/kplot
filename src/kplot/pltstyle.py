@@ -5,7 +5,7 @@
 
 """
 import platform
-import matplotlib as plt
+import matplotlib as mpl 
 
 def SetDefaultFont(font='auto', font_size=20):
 	"""Font settings
@@ -31,14 +31,14 @@ def SetDefaultFont(font='auto', font_size=20):
 		else: Font=font
 
 	# print(Font)
-	plt.rcParams["font.family"] = Font
-	plt.rcParams["font.size"] = font_size
+	mpl.rcParams["font.family"] = Font
+	mpl.rcParams["font.size"] = font_size
 
 def SetLoadLatex(flag=True):
 	"""LoadLatex 
 		If this flag set to be True, This function load Installed LaTeX system. 
 	"""
-	plt.rcParams["text.usetex"] = flag
+	mpl.rcParams["text.usetex"] = flag
 
 
 def SetDefaultFigSize(tag:str='default', fig_size:list=[], x=8, y=6, dpi=350):
@@ -63,8 +63,8 @@ def SetDefaultFigSize(tag:str='default', fig_size:list=[], x=8, y=6, dpi=350):
 	if tag in ['A4', 'a4']: FigSize = [11.69, 8.27]
 	if tag in ['B5', 'b5']: FigSize = [10.10, 7.20]
 
-	plt.rcParams["figure.figsize"] = FigSize
-	plt.rcParams["savefig.dpi"] = dpi
+	mpl.rcParams["figure.figsize"] = FigSize
+	mpl.rcParams["savefig.dpi"] = dpi
 
 def SetDefaultSettings():
 	"""SetDefaultSettings
@@ -75,34 +75,38 @@ def SetDefaultSettings():
 	SetDefaultFigSize('A4', dpi=350)
 
 	# axis
-	plt.rcParams["xtick.direction"] = 'in'
-	plt.rcParams["ytick.direction"] = 'in'
+	mpl.rcParams["xtick.direction"] = 'in'
+	mpl.rcParams["ytick.direction"] = 'in'
 
-	plt.rcParams["xtick.minor.visible"] = True
-	plt.rcParams["ytick.minor.visible"] = True
+	mpl.rcParams["xtick.minor.visible"] = True
+	mpl.rcParams["ytick.minor.visible"] = True
 
-	plt.rcParams["xtick.major.width"] = 1.0
-	plt.rcParams["ytick.major.width"] = 1.0
+	mpl.rcParams["xtick.major.width"] = 1.0
+	mpl.rcParams["ytick.major.width"] = 1.0
 
-	plt.rcParams["xtick.major.size"] = 10
-	plt.rcParams["ytick.major.size"] = 10
+	mpl.rcParams["xtick.major.size"] = 10
+	mpl.rcParams["ytick.major.size"] = 10
 
-	plt.rcParams["xtick.minor.width"] = 1.0
-	plt.rcParams["ytick.minor.width"] = 1.0
+	mpl.rcParams["xtick.minor.width"] = 1.0
+	mpl.rcParams["ytick.minor.width"] = 1.0
 
-	plt.rcParams["xtick.minor.size"] = 5
-	plt.rcParams["ytick.minor.size"] = 5
+	mpl.rcParams["xtick.minor.size"] = 5
+	mpl.rcParams["ytick.minor.size"] = 5
 
 	# ticks
-	plt.rcParams['xtick.top'] 	= False
-	plt.rcParams['ytick.right'] = False
+	mpl.rcParams['xtick.top'] 	= False
+	mpl.rcParams['ytick.right'] = False
 
 	# Frame
-	plt.rcParams["axes.linewidth"] = 1.0
+	mpl.rcParams["axes.linewidth"] = 1.0
 
-	# plt.rcParams["lines.marker"] = 'o'
-	plt.rcParams["lines.color"] = 'black'
+	# mpl.rcParams["lines.marker"] = 'o'
+	mpl.rcParams["lines.color"] = 'black'
 
-# plt.rcParamsDefault.keys()
-SetDefaultSettings()
+
+import os
+if os.getenv("KLPLOT_AUTOLOAD", "0") == "1":
+    SetDefaultSettings()
+# mpl.rcParamsDefault.keys()
+# SetDefaultSettings()
 

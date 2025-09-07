@@ -8,6 +8,8 @@ from scipy.optimize import curve_fit
 
 from IPython.display import display
 
+import warnings
+
 # 作りかけ
 class kFittingBase:
 	fDataFrameStyle = True
@@ -20,6 +22,11 @@ class kFittingBase:
 	Conv = None
 	dfParamTable = None
 	def __init__(self):
+		warnings.warn(
+            f"{self.__class__.__name__} class is developing. Implemented functions may change without notice.",
+            category=UserWarning,
+            stacklevel=2
+        )
 		pass
 	def SetPointN(self, val):
 		self.Nsamples = val
