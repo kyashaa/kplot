@@ -6,7 +6,6 @@ Download-URL: https://github.com/kyashaa/kplot
 Author: Kjasha (K&K)
 Author-email: 
 Requires-Dist: matplotlib>=3.3.4
-Requires-Dist: seaborn>=0.11.0
 Requires-Dist: numpy>=1.20.3
 Requires-Dist: pandas>=1.2.4
 Requires-Dist: scipy>=1.6.3

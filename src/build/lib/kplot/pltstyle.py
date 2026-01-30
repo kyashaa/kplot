@@ -109,16 +109,8 @@ def SetDefaultSettings():
 	# Frame
 	mpl.rcParams["axes.linewidth"] = 1.0
 
-	mpl.rcParams["lines.marker"] = 'o'
+	# mpl.rcParams["lines.marker"] = 'o'
 	mpl.rcParams["lines.color"] = 'black'
 
 	mpl.rcParams["savefig.bbox"] = "tight"
 	mpl.rcParams["savefig.pad_inches"] = 0.05
-
-
-import os
-if os.getenv("KLPLOT_AUTOLOAD", "0") == "1":
-    SetDefaultSettings()
-# mpl.rcParamsDefault.keys()
-# SetDefaultSettings()
-
