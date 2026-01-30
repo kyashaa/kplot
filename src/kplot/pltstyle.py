@@ -7,7 +7,7 @@
 import platform
 import matplotlib as mpl 
 
-def SetDefaultFont(font='auto', font_size=20):
+def SetDefaultFont(font='auto', font_size=18):
 	"""Font settings
 
 	Set font type and size. default font set 'sans-serif'.
@@ -28,6 +28,7 @@ def SetDefaultFont(font='auto', font_size=20):
 			if System in ("Windows", "Darwin"):
 				Font='Times New Roman'
 			else: Font='Nimbus Roman'
+			mpl.rcParams['mathtext.fontset'] = 'stix' 
 		else: Font=font
 
 	# print(Font)
@@ -65,18 +66,23 @@ def SetDefaultFigSize(tag:str='default', fig_size:list=[], x=8, y=6, dpi=350):
 
 	mpl.rcParams["figure.figsize"] = FigSize
 	mpl.rcParams["savefig.dpi"] = dpi
+	# mpl.rcParams["legend.fontsize"] = "small"
+	mpl.rcParams["legend.fontsize"] = 14
+	mpl.rcParams["legend.title_fontsize"] = 14
 
 def SetDefaultSettings():
 	"""SetDefaultSettings
 	Load and set to default figure setting parameters.
 	"""
-	SetDefaultFont(font='auto', font_size=20)
+	SetDefaultFont(font='auto', font_size=18)
 
-	SetDefaultFigSize('A4', dpi=350)
+	SetDefaultFigSize('default', dpi=350)
 
 	# axis
 	mpl.rcParams["xtick.direction"] = 'in'
 	mpl.rcParams["ytick.direction"] = 'in'
+	mpl.rcParams["xtick.top"] = True
+	mpl.rcParams["ytick.right"] = True
 
 	mpl.rcParams["xtick.minor.visible"] = True
 	mpl.rcParams["ytick.minor.visible"] = True
@@ -93,6 +99,9 @@ def SetDefaultSettings():
 	mpl.rcParams["xtick.minor.size"] = 5
 	mpl.rcParams["ytick.minor.size"] = 5
 
+	mpl.rcParams["xaxis.labellocation"] = 'right'
+	mpl.rcParams["yaxis.labellocation"] = 'top'
+
 	# ticks
 	mpl.rcParams['xtick.top'] 	= False
 	mpl.rcParams['ytick.right'] = False
@@ -100,13 +109,8 @@ def SetDefaultSettings():
 	# Frame
 	mpl.rcParams["axes.linewidth"] = 1.0
 
-	# mpl.rcParams["lines.marker"] = 'o'
+	mpl.rcParams["lines.marker"] = 'o'
 	mpl.rcParams["lines.color"] = 'black'
 
-
-import os
-if os.getenv("KLPLOT_AUTOLOAD", "0") == "1":
-    SetDefaultSettings()
-# mpl.rcParamsDefault.keys()
-# SetDefaultSettings()
-
+	mpl.rcParams["savefig.bbox"] = "tight"
+	mpl.rcParams["savefig.pad_inches"] = 0.05
