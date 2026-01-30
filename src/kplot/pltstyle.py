@@ -109,7 +109,7 @@ def SetDefaultSettings():
 	# Frame
 	mpl.rcParams["axes.linewidth"] = 1.0
 
-	mpl.rcParams["lines.marker"] = 'o'
+	# mpl.rcParams["lines.marker"] = 'o'
 	mpl.rcParams["lines.color"] = 'black'
 
 	mpl.rcParams["savefig.bbox"] = "tight"
