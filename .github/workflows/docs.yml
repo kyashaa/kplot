@@ -1,22 +1,24 @@
-name: Deploy MkDocs with mike
+name: Deploy MkDocs to GitHub Pages
 
 on:
   push:
-    branches: [main, develop.v1]
-  workflow_dispatch: {}
+    branches: ["main"]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # mikeが必要とするので全履歴取得
 
       - uses: actions/setup-python@v5
         with:
@@ -24,13 +26,23 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material "mkdocstrings[python]" mike
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-material "mkdocstrings[python]"
 
-      - name: Deploy docs
-        run: |
-          if [ "${GITHUB_REF_NAME}" = "develop" ]; then
-            mike deploy --push --update-aliases dev
-          elif [ "${GITHUB_REF_NAME}" = "main" ]; then
-            VERSION="v$(date +'%Y.%m.%d')"   # 例: v2025.09.04
-            mike deploy --push --update-aliases $VERSION latest
-          fi
+      - name: Build
+        run: mkdocs build --strict
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
