@@ -2,7 +2,46 @@ site_name: kplot Documentation
 repo_url: https://github.com/kyashaa/kplot
 
 theme:
-  name: material
+  name: readthedocs
+  custom_dir: overrides
+  features:
+  - content.code.copy
+  - content.code.select
+  - navigation.indexes
+  - content.code.annotate
+
+markdown_extensions:
+- attr_list
+- extra
+- admonition
+- pymdownx.details
+- pymdownx.superfences
+- footnotes
+- tables
+- md_in_html
+- def_list
+- pymdownx.tasklist:
+    clickable_checkbox: true
+    custom_checkbox: true
+- pymdownx.arithmatex:
+    generic: true
+- codehilite:
+    linenums: true
+    noclasses: true
+    pygments_style: monokai
+    use_pygments: true
+- pymdownx.superfences
+- pymdownx.highlight
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.smartsymbols
+- pymdownx.tilde
+- pymdownx.keys
+- pymdownx.blocks.caption
+- pymdownx.caret
+- pymdownx.mark
+- pymdownx.tilde
+- meta
 
 plugins:
   - search
@@ -13,8 +52,11 @@ plugins:
           options:
             docstring_style: google
             show_source: true
-
 nav:
   - Home: index.md
   - API Reference:
+      - pltsettings: api/style.md
       - kplot: api/kplot.md
+      - Scatter: api/scatter.md
+  - Legacy:
+      - Fitting: api/fitting.md
