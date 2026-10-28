@@ -1,0 +1,53 @@
+# Pythonパッケージのビルド設定
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Pythonパッケージのメタデータ
+[project]
+name = "kplot"
+version = "1.0.1"
+description = "Expanded plotter and optimizer for analysis/paper"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    { name = "Kjasha (K&K)" },
+]
+dependencies = [
+    "matplotlib>=3.3.4",
+    "numpy>=1.20.3",
+    "pandas>=1.2.4",
+    "scipy>=1.6.3",
+]
+
+# プロジェクトURL
+[project.urls]
+Repository = "https://github.com/kyashaa/kplot"
+
+# wheelに含めるPythonパッケージ
+[tool.hatch.build.targets.wheel]
+packages = ["src/kplot"]
+
+# --- 開発用の追加依存関係
+[project.optional-dependencies]
+
+# python -m pip install -e ".[docs]"でインストール
+docs = [
+    "mkdocs",
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    "mkdocs-gen-files",
+    "mkdocs-literate-nav",
+    "mkdocs-section-index",
+]
+
+# python -m pip install -e ".[dev]"
+dev = [
+    "pytest>=8",
+]
+
+# pytestの設定
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

@@ -1,2 +1,35 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+#  テキストファイルは作業ツリーでもLFに統一
+* text=auto eol=lf
+
+# Git設定ファイル
+.gitattributes text eol=lf
+.gitignore text eol=lf
+.editorconfig text eol=lf
+
+# Pythonソースコード
+*.py text eol=lf
+*.pyi text eol=lf
+
+# プロジェクト設定
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# ドキュメント
+*.md text eol=lf
+
+# シェルスクリプト
+*.sh text eol=lf
+
+# Makefile
+Makefile text eol=lf
+
+# Windowsバッチファイル
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# バイナリファイル
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
