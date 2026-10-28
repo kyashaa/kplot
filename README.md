@@ -18,26 +18,38 @@ matplotlibを使った論文作成時に使えそうなシンプルなグラフ�
 
 ## How to install
 
-1. clone this repository.
+## How to install
 
-    ```bash
-    ~$ cd [work path]
-    [work path]$ git clone https://github.com/kyasya/kplot.git
-    ```
+1. Clone this repository.
 
-2. open the terminal, and change to `src` directory under the installed repository.
+   ```bash
+   git clone https://github.com/kyashaa/kplot.git
+   cd kplot
+   ```
 
-    ```bash
-    [work path]$ cd src
-    ```
+2. Install the package.
 
-3. install using `src` command.:
+   ```bash
+   python -m pip install .
+   ```
 
-    ```bash
-    [work path]/bin$ pip install .
-    ```
+3. Check the installation.
 
-4. Installation check. You can use the [demo programs](#demo-sample). (./samples)
+   ```bash
+   python -c "import kplot; print(kplot.__file__)"
+   ```
+
+   You can also try the [demo programs](#demo-sample) in the `samples/` directory.
+
+### Development installation
+
+To install the package in editable mode:
+
+```bash
+python -m pip install -e .
+```
+
+Changes to the Python source files will be reflected without reinstalling the package.
 
 ## Note
 
